@@ -1,0 +1,24 @@
+{
+  "name": "sistema-de-cursos-unica",
+  "version": "1.0.0",
+  "description": "Sistema de cursos UNICA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cristobal115UwU/Sistema-de-Cursos-UNICA.git"
+  },
+  "keywords": [
+    "PHP",
+    "Admin",
+    "SQL"
+  ],
+  "author": "Edgar Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cristobal115UwU/Sistema-de-Cursos-UNICA/issues"
+  },
+  "homepage": "https://github.com/Cristobal115UwU/Sistema-de-Cursos-UNICA#readme"
+}
