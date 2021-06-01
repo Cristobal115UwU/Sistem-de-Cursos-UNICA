@@ -6,6 +6,7 @@ class Router{
 
     public function __construct(){
     }
+    
     public function get($url, $fn){
         $this->rutasGET[$url] = $fn;
     }
@@ -36,13 +37,13 @@ class Router{
             echo "Pagina No Encontrada";
         }
     }
-    public function render($view, $datos = [] ){
+    public function rendertoUNICA($view, $datos = [] ){
         foreach($datos as $key=>$value){
             $$key = $value;
         }
         ob_start();
         include __DIR__ . "/views/$view.php";
         $contenido = ob_get_clean();
-        include __DIR__ . "/views/layout.php";
+        include __DIR__ . "/views/layout1.php";
     }
 }

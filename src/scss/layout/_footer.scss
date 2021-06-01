@@ -1,0 +1,20 @@
+.footer{
+    padding: $separacion / 2 0;
+    background-color:$grisOscuro;
+    margin-bottom: 0;
+    margin-top: 4rem;
+    .copyright{
+        color: $blanco;
+        text-align: center;
+    }
+    .logos{
+        display: flex;
+        height: 12rem;
+        width: 20rem;
+    }
+    p{
+        text-align: center;
+        color: $blanco;
+        font-size: 2rem;
+    }
+}

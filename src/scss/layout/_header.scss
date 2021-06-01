@@ -1,0 +1,86 @@
+.header{
+    background-color: $azulUNICA;
+    padding: 1rem 0 3rem 0;
+    
+}
+.contenido-header{
+    .enlaces{
+        display: flex;
+        gap: 3rem;
+        margin-left: 0rem;
+        @include tablet{
+            margin-left: 10rem;
+            margin-right: 8rem;
+        }
+        a{
+            height: 9rem;
+            width: 9rem;
+        }
+    }
+}
+
+.barra{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    @include tablet{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+.navegacion{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    @include tablet{
+        flex-direction: row;
+        gap: 15rem;
+        margin-top: 0;
+        margin-right: 9rem;
+        align-items: flex-end;
+    }
+    gap: 3rem;
+    .efecto{  
+        font-family: $fuente_enlaces;
+        color: $blanco;
+        text-decoration: none;
+        font-size: 2rem;
+        &::after{
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: $blanco;
+            transition: width .3s;
+        }
+        &:hover::after{
+            width: 100%;
+            transition: width .3s;
+        }
+        &:hover{
+            color: #90FFDC;
+        }
+    }    
+    .basicas{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include tablet{
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        gap:3rem;
+    }
+    .sesion{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include tablet{
+            flex-direction: row;
+            align-items: flex-start;
+        }
+        gap:3rem;
+    }
+}

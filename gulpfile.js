@@ -26,7 +26,7 @@ function css() {
         .pipe(postcss([autoprefixer(), cssnano()]))
         // .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write('.'))
-        .pipe( dest('./public/build/css') );
+        .pipe( dest('./public/build/css'));
 }
 
 
@@ -47,19 +47,18 @@ function imagenes() {
         .pipe(notify({ message: 'Imagen Completada'}));
 }
 
-function versionWebp() {
-    return src(paths.imagenes)
-        .pipe( webp() )
-        .pipe(dest('./public/build/img'))
-        .pipe(notify({ message: 'Imagen Completada'}));
-}
+// function versionWebp() {
+//     return src(paths.imagenes)
+//         .pipe( webp() )
+//         .pipe(dest('./public/build/img'))
+//         .pipe(notify({ message: 'Imagen Completada'}));
+// }
 
 
 function watchArchivos() {
     watch( paths.scss, css );
     watch( paths.js, javascript );
     watch( paths.imagenes, imagenes );
-    watch( paths.imagenes, versionWebp );
 }
 
-exports.default = parallel(css, javascript,  imagenes, versionWebp, watchArchivos ); 
+exports.default = parallel(css, javascript,  imagenes, watchArchivos ); 
