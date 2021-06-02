@@ -1,15 +1,16 @@
-.curso{
-    width: 33rem;
-    height: 43rem;
-    border-radius: 0.8rem;
-    box-shadow: 0 0.2rem 0.2rem rgba(0,0,0,0.2);
-    overflow: hidden;
-    margin: 2rem;
-    text-align: center;
-    transition: all 0.25s;
-    
-}
+
 .container{
+    .curso{
+        width: 33rem;
+        height: auto;
+        border-radius: 0.8rem;
+        box-shadow: 0 0.2rem 0.2rem rgba(0,0,0,0.2);
+        overflow: hidden;
+        text-align: center;
+        transition: all 0.25s;
+        margin-top: 2rem;
+        margin-bottom: 5rem;
+    }
     .curso:hover{
         transform: translateY(-15px);
         box-shadow: 0 1.2rem 1.6rem rgba(0,0,0,0.2);

@@ -1,0 +1,100 @@
+.mainInfo{
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    @include tablet{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    margin: 5rem;
+    background-color: blue;
+    .imgInfo{
+        img{
+            margin-left: 8rem;
+            height: 90%;
+            width: 70%;
+        }
+    }
+    .textInfo{
+        h1{ 
+
+            @include tablet{
+                margin-left: 15rem;
+                text-align: left;
+            }
+            text-align: center;
+            color: $blanco;
+            font-family: $fuente_enlaces;
+        }
+        p{  
+            @include tablet{
+            margin-left: 15rem;
+            }
+            color: $blanco;
+            font-family: $fuente_principal;
+            font-size: 2.3rem;
+        }
+        button{
+            margin-left: 20rem;
+            margin-bottom: 3rem;
+            @include tablet{
+                margin-left: 15rem;
+            }
+        }
+    }
+}
+.secInfo{
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    @include tablet{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    margin: 5rem;
+    background-color: blue;
+    .imgInfo{
+        img{
+            margin-top: 9rem;
+            margin-left: 14rem;
+            height: 60%;
+            width: 50%;
+        }
+    }
+    .textInfo{
+        h3{ 
+            margin-left: 5rem;
+            margin-right: 5rem;
+            @include tablet{
+                margin-top: 8rem;
+                margin-right: 8rem;
+                margin-left: 0;
+                text-align: justify;
+            }
+            text-align: center;
+            color: $blanco;
+            font-family: $fuente_enlaces;
+        }
+        p{  
+            text-align: center;
+            margin-left: 4rem;
+            margin-right: 4rem;
+            @include tablet{
+                margin-left: 0;
+                text-align: justify;
+                margin-right: 8rem;
+            }
+            color: $blanco;
+            font-family: $fuente_principal;
+            font-size: 2.3rem;
+        }
+        button{
+            margin-left: 24rem;
+            @include tablet{
+                margin-left: 0;
+            }
+            margin-bottom: 5rem;
+        }
+    }
+}

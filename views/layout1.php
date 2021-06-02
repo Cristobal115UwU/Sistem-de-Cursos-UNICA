@@ -21,13 +21,13 @@
                 </div>
                 <nav class="navegacion">
                     <div class="basicas">
-                        <a class="efecto" href="#">Inicio</a>
-                        <a class="efecto" href="#">Cursos</a>
-                        <a class="efecto" href="#">Acerca de Nosotros</a>
+                        <a class="efecto" href="/">Inicio</a>
+                        <a class="efecto" href="/CursosUNICA">Cursos</a>
+                        <a class="efecto" href="/Nosotros">Acerca de Nosotros</a>
                     </div>
                     <div class="sesion">
-                        <a class="efecto" href="#">Iniciar Sesión</a>
-                        <a class="efecto" href="#">Crear Cuenta</a>
+                        <a class="efecto" href="/Login">Iniciar Sesión</a>
+                        <a class="efecto" href="/SignUp">Crear Cuenta</a>
                     </div>
                 </nav>
             </div>

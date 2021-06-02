@@ -4,6 +4,7 @@
     </div>
 </section>
 <main>
+    <h1>Nuestros Cursos Disponibles</h1>
     <div class="container">
         <div class="curso">
             <h4>Titulo del curso</h4>

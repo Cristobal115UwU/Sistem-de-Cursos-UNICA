@@ -5,5 +5,11 @@
 
     $router = new Router();
     $router->get("/", [ViewsController::class, "index"]);
+    $router->get("/CursosUNICA", [ViewsController::class, "listarCursos"]);
+    $router->get("/Nosotros", [ViewsController::class, "Nosotros"]);
+    $router->get("/Login", [ViewsController::class, "Login"]);
+    $router->post("/Login", [ViewsController::class, "Login"]);
+    $router->get("/SignUp", [ViewsController::class, "SignUp"]);
+    $router->post("/SignUp", [ViewsController::class, "SignUp"]);
 
     $router->comprobarRutas();
