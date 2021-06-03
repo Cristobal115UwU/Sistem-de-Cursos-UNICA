@@ -11,31 +11,21 @@ class ActiveRecord{
     protected static $errores = [];
     
 
-    public function guardar(){
-        if(!is_null($this->id)){
-            //Actualizar
-            $this->actualizar();
-        }else{
-            $this->crear();
-        }
-    }
-
     public function crear(){
         //Sanitizar los datos
         $atributos = $this->sanitizarDatos();
         //Insertar en la base de Datos
         $query = " INSERT INTO " . static::$tabla . " ( ";
         $query .=  join(',', array_keys($atributos)); 
-        $query .= " ) VALUES(' "; 
-        $query .= join("', '", array_values($atributos)); 
-        $query .= " ') ";
+        $query .= " ) VALUES( "; 
+        $query .= join(", ", array_values($atributos)); 
+        $query .= " ) ";
 
-        //debuguear($query);
         $resultado = self::$db->query($query);
         //Mensaje de exito
         if($resultado){
             //Redireccionar
-            header('Location:/public/admin?resultado=1');
+            header('Location:/Login?resultado=1');
         }
     }
     public function actualizar(){
@@ -80,7 +70,7 @@ class ActiveRecord{
         $atributos = $this->atributos();
         $sanitizado = [];
         foreach($atributos as $key => $value ){
-            $sanitizado[$key] = self::$db->escape_string($value);
+            $sanitizado[$key] = self::$db->quote($value);
         }
         return $sanitizado;
     }
