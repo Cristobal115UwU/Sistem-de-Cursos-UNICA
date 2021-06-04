@@ -77,9 +77,7 @@ class Alumno extends ActiveRecord{
     }
     public function comprobarPassword($resultado){
         $usuario = $resultado->fetchObject();
-        debuguear(strlen($usuario->password));
-        $autenticado = password_verify($this->password,$usuario->password);
-        debuguear($autenticado);
+        $autenticado = password_verify($this->usuario,$usuario->password);
         if(!$autenticado){
             self::$errores[] = "El password es Incorrecto";
         }

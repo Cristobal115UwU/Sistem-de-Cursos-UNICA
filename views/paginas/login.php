@@ -1,6 +1,6 @@
 <main class="contenedor seccion contenido-centrado">
 <?php
-    if($resultado){
+    if(!is_null($resultado)){
         $mensaje = mostrarNotificacion(intval($resultado));
         if($mensaje){ ?>
             <p class="alerta exito"><?php echo s($mensaje)?></p>

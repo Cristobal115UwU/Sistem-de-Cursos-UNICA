@@ -5,11 +5,11 @@ class ActiveRecord{
     //Base de Datos
     protected static $db;
     protected static $columnasDB = [];
+    protected static $columnasClean = [];
     protected static $tabla = "";
 
     //Errores 
     protected static $errores = [];
-    
 
     public function crear(){
         //Sanitizar los datos
@@ -20,7 +20,6 @@ class ActiveRecord{
         $query .= " ) VALUES( "; 
         $query .= join(", ", array_values($atributos)); 
         $query .= " ) ";
-
         $resultado = self::$db->query($query);
         //Mensaje de exito
         if($resultado){
@@ -62,7 +61,7 @@ class ActiveRecord{
         $atributos = [];
         foreach(static::$columnasDB as $columna){
             if($columna === "id") continue;
-                $atributos[$columna] = $this->$columna;
+            $atributos[$columna] = $this->$columna;
         }
         return $atributos;
     }
@@ -70,6 +69,9 @@ class ActiveRecord{
         $atributos = $this->atributos();
         $sanitizado = [];
         foreach($atributos as $key => $value ){
+            if($key==="password"){
+                $sanitizado[$key] = $value;
+            }            
             $sanitizado[$key] = self::$db->quote($value);
         }
         return $sanitizado;

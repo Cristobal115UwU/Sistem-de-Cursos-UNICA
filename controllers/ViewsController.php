@@ -9,15 +9,18 @@ class ViewsController{
         $router->rendertoUNICA('paginas/index', [
         ]);
     }
+
     public static function listarCursos(Router $router){
 
         $router->rendertoUNICA('paginas/cursos', [
         ]);
     }
+
     public static function Nosotros(Router $router){
         $router->rendertoUNICA('paginas/nosotros', [
             ]);
     }
+
     public static function Login(Router $router){
         $resultado = $_GET['resultado'] ?? null;
         $errores =[];
@@ -26,13 +29,13 @@ class ViewsController{
             $errores = $auth->validarLogin();
             if(empty($errores)){
                 //Verificar si el usuario existe
-                $resultado=$auth->existeUsuario();
+                $alumno=$auth->existeUsuario();
                 $admin=$auth->existeAdmin();
-                if(!$resultado){
+                if(!$alumno){
                     $errores = Alumno::getErrores();
                 }else{
                     //Verificar el password
-                    $autenticado = $auth->comprobarPassword($resultado);
+                    $autenticado = $auth->comprobarPassword($alumno);
                     if($autenticado){
                         //Autenticar el usuario
                         $auth->autenticar();
@@ -43,6 +46,7 @@ class ViewsController{
                 }
             }
         }
+
         $router->rendertoUNICA('paginas/login', [
             'errores' => $errores,
             'resultado' => $resultado
@@ -56,10 +60,10 @@ class ViewsController{
             $errores = $alumno->validarSignUp();
             if(empty($errores)){
                 $alumno->guardar();
+                debuguear($alumno->password);
             }    
         }
         $router->rendertoUNICA('paginas/signup',[
-
         ]);
     }
 }

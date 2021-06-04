@@ -27,36 +27,36 @@
             <article class="entrada-blog">
                 <div class="imagen">
                     <picture>
-                        <source srcset="\public\build/img/blog1.webp" type="image/webp"> 
-                        <source srcset="\public\build/img/blog1.jpg" type="image/jpeg">
-                        <img loading="lazy" src="build/img/blog1.jpg" alt="Texto Entrada Blog"> 
+                        <source srcset="#" type="image/webp"> 
+                        <source srcset="#" type="image/jpeg">
+                        <img loading="lazy" src="#" alt="Texto Entrada Blog"> 
                     </picture>
                 </div>
                 <div class="texto-entrada">
                     <a href="entrada.php">
-                        <h4>Terraza en el techo de tu casa</h4>
+                        <h4>¿Cómo aprovechar tus tiempos?</h4>
                         <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Admin</span></p>
                     </a>
                     <p>
-                        Consejos para construir una terraza en el techo de tu casa con oos mejores materiales y ahorrando dinero.
+                        Consejos para administrar tus tiempos de estudio.
                     </p>
                 </div>
             </article>
             <article class="entrada-blog">
                 <div class="imagen">
                     <picture>
-                        <source srcset="\public\build/img/blog2.webp" type="image/webp"> 
-                        <source srcset="\public\build/img/blog2.jpg" type="image/jpeg">
-                        <img loading="lazy" src="build/img/blog2.jpg" alt="Texto Entrada Blog"> 
+                        <source srcset="#" type="image/webp"> 
+                        <source srcset="#" type="image/jpeg">
+                        <img loading="lazy" src="#" alt="Texto Entrada Blog"> 
                     </picture>
                 </div>
                 <div class="texto-entrada">
                     <a href="entrada.php">
-                        <h4>Guía para la decoracion de tu hogar</h4>
+                        <h4>Los mejores componentes para tu estudio.</h4>
                         <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Admin</span></p>
                     </a>
                     <p>
-                        Maximiza el espacio en tu hogar con esta guia, aprende a combinar muebles y colores para darle vida a tu espacio. 
+                        Maximiza el espacio en tu estudio con estas ideas que tenemos para ti. 
                     </p>
                 </div>
             </article>
@@ -65,7 +65,7 @@
             <h3>Testimoniales</h3>
             <div class="testimonial">
                 <blockquote>
-                    El personal se comportó de una excelente forma, muy buena atencion y la casa que me ofrecieron cumple con todas mis expectativas.
+                    El instructor se comportó de una excelente forma, muy buena atencion y el curso que tome cumple con todas mis expectativas.
                 </blockquote>
                 <p>Edgar García</p>
             </div>
