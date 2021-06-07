@@ -11,5 +11,6 @@
     $router->post("/Login", [ViewsController::class, "Login"]);
     $router->get("/SignUp", [ViewsController::class, "SignUp"]);
     $router->post("/SignUp", [ViewsController::class, "SignUp"]);
+    $router->get("/LogOut", [ViewsController::class, "LogOut"]);
 
     $router->comprobarRutas();

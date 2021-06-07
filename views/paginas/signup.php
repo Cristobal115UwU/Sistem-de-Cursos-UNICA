@@ -10,7 +10,7 @@
             <label for="email">Correo electronico:</label>
             <input type="text" id="email" name="alumno[correo_alumno]" placeholder="Tu e-mail">
             <label for="email">Crea una Contraseña:</label>
-            <input type="password" id="contraseña" name="alumno[contraseña]" placeholder="Crea tu Contraseña">
+            <input type="password" id="contraseña" name="alumno[password]" placeholder="Crea tu Contraseña">
             <input type="submit" value="Crear Cuenta" class="boton boton-verde">
         </fieldset>
     </form>  

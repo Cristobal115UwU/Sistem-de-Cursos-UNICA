@@ -77,13 +77,24 @@ class Alumno extends ActiveRecord{
     }
     public function comprobarPassword($resultado){
         $usuario = $resultado->fetchObject();
-        $autenticado = password_verify($this->usuario,$usuario->password);
+        $autenticado = password_verify($this->password, $usuario->password);
         if(!$autenticado){
             self::$errores[] = "El password es Incorrecto";
         }
-        return $autenticado;
+        return array($autenticado,$usuario);
     }
-    public function autenticar(){
+    public function autenticar($usuario){
+        session_start();
+        //Llenar el arreglo de session
+        $_SESSION['usuario'] = $usuario->nombre;
+        $_SESSION['tipo'] = 0;
+        $_SESSION['login'] = true;
+        $id = $usuario->alumnoID;
+        $url = "Location: /?id=" . $id;
+        header($url);
+    }
+
+    public function autenticarAdmin(){
         session_start();
         //Llenar el arreglo de session
         $_SESSION['usuario'] = $this->email;

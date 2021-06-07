@@ -30,15 +30,17 @@ class ViewsController{
             if(empty($errores)){
                 //Verificar si el usuario existe
                 $alumno=$auth->existeUsuario();
-                $admin=$auth->existeAdmin();
+                //$admin=$auth->existeAdmin();
                 if(!$alumno){
                     $errores = Alumno::getErrores();
                 }else{
                     //Verificar el password
-                    $autenticado = $auth->comprobarPassword($alumno);
+                    $valores [] = $auth->comprobarPassword($alumno);
+                    $autenticado = $valores[0][0];
                     if($autenticado){
                         //Autenticar el usuario
-                        $auth->autenticar();
+                        $usuario = $valores[0][1];
+                        $auth->autenticar($usuario);
                     }else{
                         //Password incorrecto (mensaje de error)
                         $errores = Alumno::getErrores();
@@ -65,5 +67,10 @@ class ViewsController{
         }
         $router->rendertoUNICA('paginas/signup',[
         ]);
+    }
+    public static function LogOut(){
+        session_start();
+        $_SESSION = [];
+        header('Location: /');
     }
 }

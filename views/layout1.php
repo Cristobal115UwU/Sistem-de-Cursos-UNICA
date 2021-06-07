@@ -1,3 +1,10 @@
+<?php
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    $auth = $_SESSION['login'] ?? false;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,8 +33,13 @@
                         <a class="efecto" href="/Nosotros">Acerca de Nosotros</a>
                     </div>
                     <div class="sesion">
+                        <?php if($auth){ ?>
+                        <a class="efecto" href="/Login">Hola <?php echo $_SESSION['usuario']; ?></a>
+                        <a class="efecto" href="/LogOut">Cerrar Sesión</a>
+                        <?php }else{ ?>
                         <a class="efecto" href="/Login">Iniciar Sesión</a>
                         <a class="efecto" href="/SignUp">Crear Cuenta</a>
+                        <?php } ?>
                     </div>
                 </nav>
             </div>
