@@ -12,5 +12,6 @@
     $router->get("/SignUp", [ViewsController::class, "SignUp"]);
     $router->post("/SignUp", [ViewsController::class, "SignUp"]);
     $router->get("/LogOut", [ViewsController::class, "LogOut"]);
+    $router->get("/AdminMenu", [AdminController::class, "index"]);
 
     $router->comprobarRutas();

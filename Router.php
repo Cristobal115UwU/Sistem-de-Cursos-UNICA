@@ -46,4 +46,13 @@ class Router{
         $contenido = ob_get_clean();
         include __DIR__ . "/views/layout1.php";
     }
+    public function rendertoAdmin($view, $datos = [] ){
+        foreach($datos as $key=>$value){
+            $$key = $value;
+        }
+        ob_start();
+        include __DIR__ . "/views/$view.php";
+        $contenido = ob_get_clean();
+        include __DIR__ . "/views/layout2.php";
+    }
 }
