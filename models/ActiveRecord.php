@@ -1,6 +1,8 @@
 <?php
 
 namespace Model;
+use PDO;
+
 class ActiveRecord{
     //Base de Datos
     protected static $db;
@@ -116,7 +118,7 @@ class ActiveRecord{
     public static function setDB($database){
         self::$db = $database;
     }
-    //Lista todas las propiedades 
+    //Lista todas los registros
     public static function all(){
         $query = "SELECT * FROM " . static::$tabla ; //Static es para referenciar a una clase hija
         $resultado = self::consultarSQL($query);
@@ -134,22 +136,19 @@ class ActiveRecord{
     public static function consultarSQL($query){
         //Consultar la base de datos
         $resultado = self::$db->query($query);
-
         //Iterar los resultados
         $array = [];
-        while($registro = $resultado->fetch_assoc()){
+        for($i=0; $i<$resultado->rowCount();$i++){
+            $registro = $resultado->fetch(PDO::FETCH_ASSOC);
             $array[] = static::crearObjeto($registro);
         }
-    
         //Liberar la memoria
-        $resultado->free();
-
+        $resultado->closeCursor();
         //Retornar los resultados
         return $array;
     }
     protected static function crearObjeto($registro){
         $objeto = new static;
-
         foreach($registro as $key => $value){
             if(property_exists($objeto, $key)){
                 $objeto->$key = $value;
@@ -160,7 +159,7 @@ class ActiveRecord{
     //Busca un registro por su ID
     public static function find($id){
         $query = "SELECT * FROM " . static::$tabla . " WHERE id = ${id}";
-        $resultado = self::consultarSQL($query);
+        $resultado = self::consultarSQL($query,static::$tabla);
         return array_shift($resultado);
     }
     // Sincroniza el objeto en memoria con los cambios realizados por el usuario.
@@ -171,5 +170,13 @@ class ActiveRecord{
             }
         }
     }
+}
+function objectToObject($instance, $className) {
+    return unserialize(sprintf(
+        'O:%d:"%s"%s',
+        strlen($className),
+        $className,
+        strstr(strstr(serialize($instance), '"'), ':')
+    ));
 }
 ?>

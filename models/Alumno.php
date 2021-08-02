@@ -57,7 +57,7 @@ class Alumno extends ActiveRecord{
 
     
     public function existeUsuario(){
-        // Revisar su un usuario existe o no
+        // Revisar si un usuario existe o no
         $query = "SELECT * FROM " . self::$tabla . " WHERE correo_alumno = '" . $this->correo_alumno . "' LIMIT 1";
         $resultado = self::$db->query($query);
         if(!$resultado->rowCount()){
@@ -66,11 +66,12 @@ class Alumno extends ActiveRecord{
         }
         return $resultado;
     }
-    public function existeAdmin(){
-        // Revisar su un usuario existe o no
-        $query = "SELECT * FROM admin WHERE correo = '" . $this->correo_alumno . " ' LIMIT 1";
+    public function existeAdmin($correo){
+        // Revisar si un admin existe o no
+        $query = "SELECT * FROM admin WHERE correo = '" . $correo . "' LIMIT 1";
         $resultado = self::$db->query($query);
         if(!$resultado->rowCount()){
+            self::$errores[] = "El usuario no existe";
             return;
         }
         return $resultado;
@@ -99,6 +100,6 @@ class Alumno extends ActiveRecord{
         //Llenar el arreglo de session
         $_SESSION['usuario'] = $this->email;
         $_SESSION['login'] = true;
-        header('Location: /');
+        header('Location: /AdminMenu');
     }
 }

@@ -28,18 +28,11 @@
                 </div>
                 <nav class="navegacion">
                     <div class="basicas">
-                        <a class="efecto" href="/">Inicio</a>
-                        <a class="efecto" href="/CursosUNICA">Cursos</a>
-                        <a class="efecto" href="/Nosotros">Acerca de Nosotros</a>
+                        <a class="efecto" href="/AdminMenu">Administrar Cursos e Instructores</a>
+                        <a class="efecto" href="/AlumnosyCalificaciones">Administrar Alumnos y Calificaciones</a>
                     </div>
                     <div class="sesion">
-                        <?php if($auth){ ?>
-                        <a class="efecto" href="/Login">Hola <?php echo $_SESSION['usuario']; ?></a>
                         <a class="efecto" href="/LogOut">Cerrar Sesión</a>
-                        <?php }else{ ?>
-                        <a class="efecto" href="/Login">Iniciar Sesión</a>
-                        <a class="efecto" href="/SignUp">Crear Cuenta</a>
-                        <?php } ?>
                     </div>
                 </nav>
             </div>

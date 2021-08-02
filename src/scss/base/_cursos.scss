@@ -1,15 +1,22 @@
 
 .container{
+    height:auto;
+    display: grid;
+    grid-template-columns:auto;
+    grid-row-gap: 5rem;
+    @include tablet{
+        grid-template-columns:repeat(3,1fr);
+    }
+    margin-bottom: auto;
+
     .curso{
         width: 33rem;
-        height: auto;
         border-radius: 0.8rem;
         box-shadow: 0 0.2rem 0.2rem rgba(0,0,0,0.2);
         overflow: hidden;
         text-align: center;
         transition: all 0.25s;
-        margin-top: 2rem;
-        margin-bottom: 5rem;
+        margin-bottom: auto;
     }
     .curso:hover{
         transform: translateY(-15px);

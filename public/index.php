@@ -2,6 +2,7 @@
     require_once __DIR__ . '/../includes/app.php';
     use MVC\Router;
     use Controllers\ViewsController;
+    use Controllers\AdminController;
 
     $router = new Router();
     $router->get("/", [ViewsController::class, "index"]);
@@ -13,5 +14,6 @@
     $router->post("/SignUp", [ViewsController::class, "SignUp"]);
     $router->get("/LogOut", [ViewsController::class, "LogOut"]);
     $router->get("/AdminMenu", [AdminController::class, "index"]);
+    $router->get("/AlumnosyCalificaciones", [AdminController::class, "setAlu"]);
 
     $router->comprobarRutas();

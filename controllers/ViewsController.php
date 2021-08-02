@@ -1,18 +1,21 @@
 <?php 
 namespace Controllers;
 use MVC\Router;
+use Model\Admin;
+use Model\Curso;
 use Model\Alumno;
+
 class ViewsController{
-
     public static function index(Router $router){
-
+        $cursos = Curso::get(3);
         $router->rendertoUNICA('paginas/index', [
+            'cursos' => $cursos
         ]);
     }
-
     public static function listarCursos(Router $router){
-
+        $cursos = Curso::all();
         $router->rendertoUNICA('paginas/cursos', [
+            'cursos' => $cursos
         ]);
     }
 
@@ -30,20 +33,34 @@ class ViewsController{
             if(empty($errores)){
                 //Verificar si el usuario existe
                 $alumno=$auth->existeUsuario();
-                //$admin=$auth->existeAdmin();
-                if(!$alumno){
-                    $errores = Alumno::getErrores();
-                }else{
-                    //Verificar el password
-                    $valores [] = $auth->comprobarPassword($alumno);
-                    $autenticado = $valores[0][0];
-                    if($autenticado){
-                        //Autenticar el usuario
-                        $usuario = $valores[0][1];
-                        $auth->autenticar($usuario);
-                    }else{
-                        //Password incorrecto (mensaje de error)
+                $admin=$auth->existeAdmin($_POST['alumno']['correo_alumno']);
+                if($admin){
+                    $valoresAdmin [] = $auth->comprobarPassword($admin);
+                        $autenticado = $valoresAdmin[0][0];
+                        if($autenticado){
+                            //Autenticar el usuario
+                            $usuario = $valoresAdmin[0][1];
+                            $auth->autenticarAdmin($usuario);
+                        }else{
+                            //Password incorrecto (mensaje de error)
+                            $errores = Alumno::getErrores();
+                        }
+                }
+                else{
+                    if(!$alumno){
                         $errores = Alumno::getErrores();
+                    }else{
+                        //Verificar el password
+                        $valoresALU [] = $auth->comprobarPassword($alumno);
+                        $autenticado = $valoresALU[0][0];
+                        if($autenticado){
+                            //Autenticar el usuario
+                            $usuario = $valoresALU[0][1];
+                            $auth->autenticar($usuario);
+                        }else{
+                            //Password incorrecto (mensaje de error)
+                            $errores = Alumno::getErrores();
+                        }
                     }
                 }
             }

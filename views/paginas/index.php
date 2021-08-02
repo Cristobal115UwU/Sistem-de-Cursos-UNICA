@@ -5,15 +5,9 @@
 </section>
 <main>
     <h1>Nuestros Cursos Disponibles</h1>
-    <div class="container">
-        <div class="curso">
-            <h4>Titulo del curso</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum quisquam quasi officia fuga totam voluptate aperiam. Cupiditate quis eaque quia dicta quibusdam dolorem enim sunt, nemo distinctio repellat laborum dolore!</p>
-            <a href="#" class="boton-amarillo-block">Ir al curso</a>
-        </div> 
-    </div>
-    <div class="alinear-derecha contenedor">
-        <a href="/public/propiedades" class="boton-verde">Ver Todos los cursos</a>
+    <?php include 'listarCursos.php'?>
+    <div class="alinear-derecha contenedor index">
+        <a href="/CursosUNICA" class="boton-verde">Ver Todos los cursos</a>
     </div> 
 </main>
 <section class="imagen-contacto contenedor">
