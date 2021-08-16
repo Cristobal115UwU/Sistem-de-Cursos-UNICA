@@ -15,8 +15,6 @@
 
     // echo $passwordHash;
 
-    $query = "INSERT INTO admin (correo, password) VALUES('${email}', '${passwordHash}') ";
-
-    $db->query($query);
-
+    $query = "INSERT INTO admin (correo_admin, password_admin) VALUES('${email}', '${passwordHash}') ";
+    $resultado = $db->query($query);
 ?>

@@ -23,6 +23,14 @@ table.propiedades {
             padding: 2rem;
         }
     }
+    .tbody{
+        .tr{
+            .td{
+                text-align: center;
+                vertical-align: middle
+            }
+        }
+    }
     .imagen-tabla{
         width: 10rem;
     }

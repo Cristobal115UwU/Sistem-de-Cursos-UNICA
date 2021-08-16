@@ -15,5 +15,14 @@
     $router->get("/LogOut", [ViewsController::class, "LogOut"]);
     $router->get("/AdminMenu", [AdminController::class, "index"]);
     $router->get("/AlumnosyCalificaciones", [AdminController::class, "setAlu"]);
+    $router->get("/admin/curso/crear", [AdminController::class, "setCurso"]);
+
+    $router->post("/admin/curso/crear", [AdminController::class, "setCurso"]);
+    $router->get("/admin/instructor/crear", [AdminController::class, "setInstructores"]);
+
+    $router->get("/admin/curso/actualizar", [AdminController::class, "editCurso"]);
+    $router->post("/admin/curso/actualizar", [AdminController::class, "editCurso"]);
+    $router->post("/admin/curso/eliminar", [AdminController::class, "delCurso"]);
+
 
     $router->comprobarRutas();

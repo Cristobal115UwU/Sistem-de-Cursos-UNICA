@@ -24,16 +24,16 @@
             <tbody> <!--Mostrar los Resultados-->
             <?php foreach($cursos as $curso): ?>
                 <tr>
-                    <td><?php echo $curso->cursoID?></td>
-                    <td><?php echo $curso->nombre?></td>
-                    <td><?php echo $curso->descripcion?></td>
+                    <td><?php echo $curso->id_curso?></td>
+                    <td><?php echo $curso->nombre_curso?></td>
+                    <td><?php echo $curso->descripcion_curso?></td>
                     <td>
-                        <form method="POST" class="w-100" action="/public/propiedades/eliminar">
-                            <input type="hidden" name="id" value="<?php echo $curso->cursoID;?>">
+                        <form method="POST" class="w-100" action="/admin/curso/eliminar">
+                            <input type="hidden" name="id" value="<?php echo $curso->id_curso;?>">
                             <input type="hidden" name="tipo" value="curso">
                             <input type="submit" class="boton-rojo-block" value="Eliminar">
                         </form>
-                        <a href="/public/propiedades/actualizar?id=<?php echo $curso->cursoID; ?>" class="boton-amarillo-block">Actualizar</a>
+                        <a href="/admin/curso/actualizar?id=<?php echo $curso->id_curso; ?>" class="boton-amarillo-block">Actualizar</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -52,7 +52,7 @@
             <tbody> <!--Mostrar los Resultados-->
             <?php foreach($instructores as $instructor): ?>
                 <tr>
-                    <td><?php echo $instructor->instructorID?></td>
+                    <td><?php echo $instructor->id_instructor?></td>
                     <td><?php echo $instructor->nombre_instructor . " " . $instructor->apellido_instructor?></td>
                     <td><?php echo $instructor->telefono?></td>
                     <td>

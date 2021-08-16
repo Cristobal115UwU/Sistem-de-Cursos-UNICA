@@ -12,23 +12,6 @@ class ActiveRecord{
 
     //Errores 
     protected static $errores = [];
-
-    public function crear(){
-        //Sanitizar los datos
-        $atributos = $this->sanitizarDatos();
-        //Insertar en la base de Datos
-        $query = " INSERT INTO " . static::$tabla . " ( ";
-        $query .=  join(',', array_keys($atributos)); 
-        $query .= " ) VALUES( "; 
-        $query .= join(", ", array_values($atributos)); 
-        $query .= " ) ";
-        $resultado = self::$db->query($query);
-        //Mensaje de exito
-        if($resultado){
-            //Redireccionar
-            header('Location:/Login?resultado=1');
-        }
-    }
     public function actualizar(){
         //Sanitizar los datos
         $atributos = $this->sanitizarDatos();
@@ -39,7 +22,7 @@ class ActiveRecord{
         }
         $query = "UPDATE " . static::$tabla . " SET ";
         $query .= join(', ',$valores);
-        $query .= "WHERE id= '" . self::$db->escape_string($this->id) . "' ";
+        $query .= "WHERE id_curso= '" . self::$db->escape_string($this->id) . "' ";
         $query .= " LIMIT 1 ";
 
         $resultado = self::$db->query($query);
@@ -53,7 +36,6 @@ class ActiveRecord{
         $query= "DELETE FROM " . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
         $resultado = self::$db->query($query);
         if($resultado){
-            $this->borrarImagen();
             header('location: /public/admin?resultado=3');
         }
     }
