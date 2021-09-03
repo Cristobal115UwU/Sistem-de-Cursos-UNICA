@@ -28,8 +28,8 @@
                 </div>
                 <nav class="navegacion">
                     <div class="basicas">
-                        <a class="efecto" href="/AdminMenu">Administrar Cursos e Instructores</a>
-                        <a class="efecto" href="/AlumnosyCalificaciones">Administrar Alumnos y Calificaciones</a>
+                        <a class="efecto" href="/AdminMenu">Crear Cursos e Instructores</a>
+                        <a class="efecto" href="/AlumnosyCalificaciones">Crear y Revisión de Grupos</a>
                     </div>
                     <div class="sesion">
                         <a class="efecto" href="/LogOut">Cerrar Sesión</a>

@@ -1,0 +1,30 @@
+.main-tabla{
+	margin: 5rem auto;
+	width: 600px;
+}
+
+table{
+	background-color: white;
+	text-align: left;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td{
+	padding: 20px;
+}
+
+.tableH{
+	background-color: #246355;
+	border-bottom: solid 5px #0F362D;
+	color: white;
+}
+
+.celda:nth-child(even){
+	background-color: #ddd;
+}
+
+.celda :hover td{
+	background-color: #369681;
+	color: white;
+}

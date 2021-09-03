@@ -18,7 +18,13 @@ class ViewsController{
             'cursos' => $cursos
         ]);
     }
-
+    public static function mostrarCurso(Router $router){
+        $id = validarOredireccionar('/public/admin');
+        $curso = Curso::find($id);
+        $router->rendertoUNICA('paginas/curso', [
+            'curso' => $curso
+        ]);
+    }
     public static function Nosotros(Router $router){
         $router->rendertoUNICA('paginas/nosotros', [
             ]);

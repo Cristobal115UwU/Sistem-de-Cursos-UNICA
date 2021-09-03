@@ -53,15 +53,15 @@
             <?php foreach($instructores as $instructor): ?>
                 <tr>
                     <td><?php echo $instructor->id_instructor?></td>
-                    <td><?php echo $instructor->nombre_instructor . " " . $instructor->apellido_instructor?></td>
+                    <td><?php echo $instructor->nombre_instructor . " " . $instructor->apellido_paterno . " " .  $instructor->apellido_materno?></td>
                     <td><?php echo $instructor->telefono?></td>
                     <td>
-                        <form method="POST" class="w-100" action="/public/vendedores/eliminar">
-                            <input type="hidden" name="id" value="<?php echo $instructor->instructorID;?>">
-                            <input type="hidden" name="tipo" value="vendedor">
+                        <form method="POST" class="w-100" action="/admin/curso/eliminar">
+                            <input type="hidden" name="id" value="<?php echo $instructor->id_instructor;?>">
+                            <input type="hidden" name="tipo" value="instructor">
                             <input type="submit" class="boton-rojo-block" value="Eliminar">
                         </form>
-                        <a href="/public/vendedores/actualizar?id=<?php echo $instructor->instructorID; ?>" class="boton-amarillo-block">Actualizar</a>
+                        <a href="/admin/instructor/actualizar?id=<?php echo $instructor->id_instructor; ?>" class="boton-amarillo-block">Actualizar</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

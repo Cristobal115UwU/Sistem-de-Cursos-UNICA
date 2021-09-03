@@ -15,9 +15,14 @@ class AdminController{
             'instructores' => $instructores
         ]);
     }
-    public static function setAlu(Router $router){
+    public static function setGrupo(Router $router){
+        $cursos = Curso::all();
+        $instructores = Instructor::all();
+        $errores = Curso::getErrores();
         $router->rendertoAdmin('admin/caliyalu',[
-
+            'cursos' => $cursos,
+            'instructores' => $instructores,
+            'errores' => $errores
         ]);
     }
     public static function setCurso(Router $router){
@@ -67,8 +72,49 @@ class AdminController{
         }
     }
     public static function setInstructores(Router $router){
+        $errores = Instructor::getErrores();
+        $instructor = new Instructor();
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $instructor = new Instructor($_POST['instructor']);
+            $instructor->crearInstructor();
+        }
         $router->rendertoAdmin('admin/instructor/crear',[
-
+            'errores' => $errores,
+            'instructor' => $instructor
         ]);
+    }
+    public static function editInstructor(Router $router){
+        $id = validarOredireccionar('/public/admin');
+        $instructor = Instructor::find($id);  
+        $errores = Instructor::getErrores();
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $args = $_POST['instructor'];
+            $instructor->sincronizar($args);
+            //Validación
+            $errores = $instructor->validar();
+
+            //Revisar que el arreglo de errores este vacio
+            if(empty($errores)){
+                $instructor->actualizarInstructor(strval($id));
+            }
+        }
+        $router->rendertoAdmin('admin/instructor/actualizar',[
+            'errores' => $errores,
+            'instructor' => $instructor
+        ]);
+    }
+    public static function delInstructor(Router $router){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $id = $_POST['id'];
+            $id = filter_var($id, FILTER_VALIDATE_INT);
+            if($id) {
+                $tipo = $_POST['tipo'];
+                if(validarTipoContenido($tipo)){
+                    $instructor = Instructor::find($id);
+
+                    $instructor->eliminarInstructor($id);
+                }
+            }
+        }
     }
 }
